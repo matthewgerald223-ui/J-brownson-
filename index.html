@@ -13,7 +13,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* PURE DARK GREEN BACKGROUND */
         body {
             background-color: #06130c;
             color: #f8fafc;
@@ -22,7 +21,7 @@
 
         /* --- HERO HEADER WITH 3D PERSPECTIVE --- */
         .hero {
-            height: 90vh;
+            height: 85vh;
             background: linear-gradient(rgba(6, 19, 12, 0.85), rgba(6, 19, 12, 0.95)), 
                         url('Screenshot_20261109-224620.jpg') center/cover no-repeat;
             display: flex;
@@ -32,40 +31,36 @@
             text-align: center;
             padding: 20px;
             border-bottom: 2px solid #eab308;
-            perspective: 1000px; /* Enables 3D Space */
+            perspective: 1000px;
         }
 
-        /* 3D Bouncing & Rotating Gold Logo Badge */
         .hotel-logo-badge {
-            width: 80px;
-            height: 80px;
+            width: 75px;
+            height: 75px;
             background: linear-gradient(135deg, #facc15, #ca8a04);
             color: #06130c;
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: 900;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             margin-bottom: 20px;
-            box-shadow: 0 15px 35px rgba(250, 204, 21, 0.6), 0 5px 15px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 15px 35px rgba(250, 204, 21, 0.6);
             transform-style: preserve-3d;
             animation: rotateLogo3D 6s infinite ease-in-out;
         }
 
-        /* 3D Floating & Pulsing Luxury Hotel Name */
         .animated-hotel-name {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: 900;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             color: #ffffff;
             text-transform: uppercase;
             transform-style: preserve-3d;
-            /* Multi-layered 3D Text Shadow for Depth */
             text-shadow: 
                 0 1px 0 #ca8a04,
                 0 2px 0 #ab7503,
-                0 3px 0 #8c6002,
                 0 4px 0 #6d4b01,
                 0 5px 10px rgba(0, 0, 0, 0.9),
                 0 0 20px rgba(250, 204, 21, 0.8);
@@ -73,20 +68,20 @@
         }
 
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #d1fae5;
-            margin-top: 15px;
-            margin-bottom: 30px;
+            margin-top: 12px;
+            margin-bottom: 25px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .cta-btn {
             background: linear-gradient(135deg, #facc15, #ca8a04);
             color: #06130c;
-            padding: 14px 32px;
-            font-size: 1.05rem;
+            padding: 12px 28px;
+            font-size: 1rem;
             font-weight: 800;
-            border-radius: 35px;
+            border-radius: 30px;
             text-decoration: none;
             transition: 0.3s;
             box-shadow: 0 6px 20px rgba(234, 179, 8, 0.5);
@@ -94,59 +89,118 @@
 
         .cta-btn:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(234, 179, 8, 0.8);
         }
 
-        /* --- SECTIONS CONTAINER --- */
+        /* --- QUICK CHECK AVAILABILITY BAR (LIKE 5-STAR SITES) --- */
+        .quick-booking-bar {
+            max-width: 900px;
+            margin: -35px auto 30px auto;
+            background-color: #0b2216;
+            border: 2px solid #eab308;
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            position: relative;
+            z-index: 10;
+        }
+
+        .booking-input-group {
+            flex: 1;
+            min-width: 200px;
+            background: #06130c;
+            border: 1px solid #15422a;
+            padding: 12px 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .booking-input-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: #facc15;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .booking-input-group span {
+            font-size: 1rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .check-prices-btn {
+            background-color: #eab308;
+            color: #06130c;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: 800;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.2s;
+            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);
+        }
+
+        .check-prices-btn:hover {
+            background-color: #facc15;
+        }
+
+        /* --- CONTAINER --- */
         .container {
-            padding: 50px 20px;
+            padding: 30px 20px;
             max-width: 1100px;
             margin: auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 35px;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
             color: #facc15;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* --- PERKS BANNER --- */
-        .perks-grid {
+        /* --- AMENITIES GRID (THE 5-STAR LOOK) --- */
+        .amenities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
-        .perk-card {
+        .amenity-item {
             background-color: #0b2216;
             border: 1px solid #15422a;
-            padding: 20px;
+            padding: 18px 10px;
             border-radius: 10px;
             text-align: center;
             transition: 0.3s;
         }
 
-        .perk-card:hover {
+        .amenity-item:hover {
             border-color: #facc15;
             transform: translateY(-3px);
+            background-color: #0f2d1e;
         }
 
-        .perk-card h4 {
-            color: #facc15;
-            font-size: 1.1rem;
-            margin-bottom: 6px;
+        .amenity-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
         }
 
-        .perk-card p {
-            color: #a7f3d0;
+        .amenity-item span {
             font-size: 0.85rem;
+            color: #d1fae5;
+            font-weight: 600;
         }
 
-        /* --- GRID CARDS --- */
+        /* --- GRID CARDS (ROOMS & FACILITIES) --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -165,7 +219,6 @@
         .card:hover {
             transform: translateY(-6px);
             border-color: #facc15;
-            box-shadow: 0 15px 30px rgba(234, 179, 8, 0.2);
         }
 
         .card img {
@@ -215,7 +268,6 @@
             font-weight: 700;
             font-size: 0.9rem;
             transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.4);
         }
 
         .wa-btn:hover { background-color: #15803d; }
@@ -231,7 +283,6 @@
             font-weight: 700;
             font-size: 0.9rem;
             transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(234, 179, 8, 0.4);
         }
 
         .call-btn:hover { background-color: #ca8a04; }
@@ -260,56 +311,22 @@
             margin-top: 40px;
         }
 
-        /* --- PURE 3D KEYFRAME ANIMATIONS --- */
-        
-        /* 3D Floating & Tilting Text Animation */
+        /* --- ANIMATIONS --- */
         @keyframes float3D {
-            0% {
-                transform: rotateX(0deg) rotateY(0deg) translateZ(0px);
-                text-shadow: 
-                    0 1px 0 #ca8a04,
-                    0 2px 0 #ab7503,
-                    0 3px 0 #8c6002,
-                    0 4px 0 #6d4b01,
-                    0 5px 10px rgba(0, 0, 0, 0.9),
-                    0 0 15px rgba(250, 204, 21, 0.6);
-            }
-            50% {
-                transform: rotateX(10deg) rotateY(-8deg) translateZ(25px);
-                text-shadow: 
-                    -1px 1px 0 #ca8a04,
-                    -2px 2px 0 #ab7503,
-                    -3px 3px 0 #8c6002,
-                    -4px 4px 0 #6d4b01,
-                    -8px 8px 18px rgba(0, 0, 0, 0.9),
-                    0 0 30px rgba(250, 204, 21, 0.9);
-            }
-            100% {
-                transform: rotateX(-8deg) rotateY(10deg) translateZ(25px);
-                text-shadow: 
-                    1px 1px 0 #ca8a04,
-                    2px 2px 0 #ab7503,
-                    3px 3px 0 #8c6002,
-                    4px 4px 0 #6d4b01,
-                    8px 8px 18px rgba(0, 0, 0, 0.9),
-                    0 0 30px rgba(34, 197, 94, 0.8);
-            }
+            0% { transform: rotateX(0deg) rotateY(0deg) translateZ(0px); }
+            50% { transform: rotateX(8deg) rotateY(-6deg) translateZ(20px); }
+            100% { transform: rotateX(-6deg) rotateY(8deg) translateZ(20px); }
         }
 
-        /* 3D Rotating & Bouncing Logo Animation */
         @keyframes rotateLogo3D {
-            0%, 100% {
-                transform: translateY(0) rotateY(0deg);
-            }
-            50% {
-                transform: translateY(-12px) rotateY(180deg) translateZ(20px);
-            }
+            0%, 100% { transform: translateY(0) rotateY(0deg); }
+            50% { transform: translateY(-10px) rotateY(180deg) translateZ(15px); }
         }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION WITH 3D LOGO & TEXT -->
+    <!-- HERO SECTION -->
     <div class="hero">
         <div class="hotel-logo-badge">J</div>
         <h1 class="animated-hotel-name">J Brownson Hotel</h1>
@@ -317,26 +334,56 @@
         <a href="#rooms" class="cta-btn">Explore Rooms & Facilities</a>
     </div>
 
+    <!-- QUICK CHECK AVAILABILITY BAR (5-STYLE LOOK) -->
+    <div class="quick-booking-bar">
+        <div class="booking-input-group">
+            <label>Reservation Desk</label>
+            <span>Open 24/7 Daily</span>
+        </div>
+        <div class="booking-input-group">
+            <label>Instant Booking</label>
+            <span>Fast WhatsApp Confirm</span>
+        </div>
+        <a href="https://wa.me/2347072521896?text=Hello,%20I%20want%20to%20check%20room%20availability%20and%20prices%20at%20J%20Brownson%20Hotel" target="_blank" class="check-prices-btn">Check Prices & Book</a>
+    </div>
+
     <!-- MAIN CONTAINER -->
     <div class="container">
 
-        <!-- PERKS SECTION -->
-        <div class="perks-grid">
-            <div class="perk-card">
-                <h4>⚡ 24/7 Power</h4>
-                <p>Uninterrupted electricity supply round the clock.</p>
+        <!-- 5-STAR AMENITIES ICONS GRID -->
+        <h2 class="section-title">Hotel Amenities & Services</h2>
+        <div class="amenities-grid">
+            <div class="amenity-item">
+                <div class="amenity-icon">🚭</div>
+                <span>Non-Smoking Rooms</span>
             </div>
-            <div class="perk-card">
-                <h4>📶 High-Speed Wi-Fi</h4>
-                <p>Free, fast internet access across all rooms.</p>
+            <div class="amenity-item">
+                <div class="amenity-icon">🍽️</div>
+                <span>On-Site Restaurant</span>
             </div>
-            <div class="perk-card">
-                <h4>🛡️ Top Security</h4>
-                <p>Safe environment with CCTV and gated security.</p>
+            <div class="amenity-item">
+                <div class="amenity-icon">🏊‍♂️</div>
+                <span>Outdoor Pool</span>
             </div>
-            <div class="perk-card">
-                <h4>🍸 Bar & Lounge</h4>
-                <p>Relaxing spots for drinks and fresh meals.</p>
+            <div class="amenity-item">
+                <div class="amenity-icon">📶</div>
+                <span>Free High-Speed Wi-Fi</span>
+            </div>
+            <div class="amenity-item">
+                <div class="amenity-icon">⚡</div>
+                <span>24/7 Power Supply</span>
+            </div>
+            <div class="amenity-item">
+                <div class="amenity-icon">🛎️</div>
+                <span>24/7 Concierge</span>
+            </div>
+            <div class="amenity-item">
+                <div class="amenity-icon">🛡️</div>
+                <span>Top Security</span>
+            </div>
+            <div class="amenity-item">
+                <div class="amenity-icon">🍸</div>
+                <span>Bar & Lounge</span>
             </div>
         </div>
 
