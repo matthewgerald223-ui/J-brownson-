@@ -14,14 +14,14 @@
         }
 
         body {
-            background-color: #0f172a;
+            background-color: #070b14;
             color: #f8fafc;
         }
 
-        /* --- ANIMATED HOTEL NAME HEADER --- */
+        /* --- HERO HEADER WITH LOGO & ANIMATION --- */
         .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), 
+            height: 90vh;
+            background: linear-gradient(rgba(7, 11, 20, 0.8), rgba(7, 11, 20, 0.92)), 
                         url('Screenshot_20261109-224620.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
@@ -31,150 +31,217 @@
             padding: 20px;
         }
 
-        /* Continuous Glowing Slide-In Animation for Hotel Name */
-        .animated-hotel-name {
+        /* Glowing Logo Badge */
+        .hotel-logo-badge {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #eab308, #ca8a04);
+            color: #070b14;
             font-size: 2.2rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.6);
+            animation: bounceLogo 2s infinite ease-in-out;
+        }
+
+        /* Continuous Luxury Animated Hotel Name */
+        .animated-hotel-name {
+            font-size: 2.5rem;
             font-weight: 800;
             letter-spacing: 2px;
             color: #ffffff;
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(250, 204, 21, 0.6),
-                         0 0 20px rgba(250, 204, 21, 0.4),
-                         0 0 30px rgba(250, 204, 21, 0.2);
-            animation: slideDown 1.5s ease-out forwards, pulseGlow 3s infinite alternate ease-in-out 1.5s;
+            text-shadow: 0 0 15px rgba(250, 204, 21, 0.7),
+                         0 0 30px rgba(250, 204, 21, 0.4);
+            animation: slideDownDrop 1.2s ease-out forwards, continuousPulse 3.5s infinite alternate ease-in-out 1.2s;
             opacity: 0;
-            transform: translateY(-30px);
+            transform: translateY(-40px);
         }
 
         .hero p {
             font-size: 1.1rem;
             color: #cbd5e1;
-            margin-top: 10px;
-            margin-bottom: 25px;
-            animation: fadeIn 2s ease-out 1s forwards;
+            margin-top: 12px;
+            margin-bottom: 30px;
+            animation: fadeInText 1.8s ease-out 0.8s forwards;
             opacity: 0;
         }
 
         .cta-btn {
-            background-color: #eab308;
-            color: #0f172a;
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 30px;
+            background: linear-gradient(135deg, #eab308, #ca8a04);
+            color: #070b14;
+            padding: 14px 32px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            border-radius: 35px;
             text-decoration: none;
             transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);
+            box-shadow: 0 5px 20px rgba(234, 179, 8, 0.4);
         }
 
         .cta-btn:hover {
-            background-color: #facc15;
-            transform: scale(1.05);
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(234, 179, 8, 0.7);
         }
 
         /* --- SECTIONS CONTAINER --- */
         .container {
-            padding: 40px 20px;
+            padding: 50px 20px;
             max-width: 1100px;
             margin: auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
+            font-size: 2rem;
+            margin-bottom: 35px;
             color: #facc15;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 25px;
         }
 
         .card {
-            background-color: #1e293b;
-            border-radius: 12px;
+            background-color: #111827;
+            border-radius: 14px;
             overflow: hidden;
-            border: 1px solid #334155;
+            border: 1px solid #1f2937;
             transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             border-color: #eab308;
+            box-shadow: 0 15px 30px rgba(234, 179, 8, 0.15);
         }
 
         .card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
         }
 
         .card-info {
-            padding: 20px;
+            padding: 22px;
         }
 
         .card-info h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 8px;
+            color: #ffffff;
         }
 
         .price {
-            color: #eab308;
-            font-size: 1.2rem;
+            color: #4ade80; /* Gold-Green Balance */
+            font-size: 1.25rem;
             font-weight: bold;
             margin-bottom: 12px;
         }
 
         .details {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: #94a3b8;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Action Buttons Wrapper */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
         }
 
         .wa-btn {
-            display: block;
+            flex: 1;
             text-align: center;
-            background-color: #25d366; /* WhatsApp Green */
+            background-color: #22c55e; /* Vibrant Green */
             color: white;
-            padding: 10px;
+            padding: 12px 10px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
         }
 
-        /* --- ANIMATION KEYFRAMES --- */
-        @keyframes slideDown {
-            to {
+        .wa-btn:hover {
+            background-color: #16a34a;
+        }
+
+        .call-btn {
+            flex: 1;
+            text-align: center;
+            background-color: #eab308; /* Gold */
+            color: #070b14;
+            padding: 12px 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+        }
+
+        .call-btn:hover {
+            background-color: #ca8a04;
+        }
+
+        /* --- KEYFRAME ANIMATIONS --- */
+        @keyframes slideDownDrop {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeInText {
             to {
                 opacity: 1;
             }
         }
 
-        @keyframes pulseGlow {
-            from {
-                text-shadow: 0 0 10px rgba(250, 204, 21, 0.4);
+        @keyframes continuousPulse {
+            0% {
+                transform: scale(1);
+                text-shadow: 0 0 10px rgba(250, 204, 21, 0.5), 0 0 20px rgba(250, 204, 21, 0.3);
             }
-            to {
-                text-shadow: 0 0 25px rgba(250, 204, 21, 0.9), 0 0 35px rgba(250, 204, 21, 0.6);
+            100% {
+                transform: scale(1.03);
+                text-shadow: 0 0 25px rgba(250, 204, 21, 0.9), 0 0 40px rgba(34, 197, 94, 0.5);
             }
+        }
+
+        @keyframes bounceLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION WITH ANIMATED J BROWNSON HOTEL NAME -->
+    <!-- HERO SECTION WITH BRANDED 'J' LOGO & ANIMATED NAME -->
     <div class="hero">
+        <!-- Big J Logo Badge -->
+        <div class="hotel-logo-badge">J</div>
+        
         <h1 class="animated-hotel-name">J Brownson Hotel</h1>
         <p>Luxury, Comfort & 24/7 Premium Hospitality</p>
-        <a href="#rooms" class="cta-btn">View Rooms & Facilities</a>
+        <a href="#rooms" class="cta-btn">Explore Rooms & Facilities</a>
     </div>
 
     <!-- ROOMS SECTION -->
@@ -183,52 +250,62 @@
         
         <div class="grid">
             
-            <!-- Room 1 (Bedroom Picture) -->
+            <!-- Room 1 (Standard Executive) -->
             <div class="card">
                 <img src="Screenshot_20261109-224646.jpg" alt="Standard Executive Room">
                 <div class="card-info">
                     <h3>Standard Executive</h3>
                     <div class="price">₦15,000 / Night</div>
-                    <div class="details">AC • Free Wi-Fi • 24/7 Power • Smart TV</div>
-                    <a href="https://wa.me/2340000000000?text=Hello,%20I%20want%20to%20book%20the%20Standard%20Executive%20Room%20at%20J%20Brownson%20Hotel" target="_blank" class="wa-btn">Book via WhatsApp</a>
+                    <div class="details">AC • Free Wi-Fi • 24/7 Power • Smart TV • Cozy Bed</div>
+                    
+                    <!-- WhatsApp & Direct Call Buttons -->
+                    <div class="action-buttons">
+                        <a href="https://wa.me/2340000000000?text=Hello,%20I%20want%20to%20book%20the%20Standard%20Executive%20Room%20at%20J%20Brownson%20Hotel" target="_blank" class="wa-btn">WhatsApp</a>
+                        <a href="tel:+2340000000000" class="call-btn">Call Hotel</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Room 2 (Lounge/Dining Picture) -->
+            <!-- Room 2 (Royal Diplomatic Suite) -->
             <div class="card">
                 <img src="Screenshot_20261109-224730.jpg" alt="Royal Diplomatic Suite">
                 <div class="card-info">
                     <h3>Royal Diplomatic Suite</h3>
                     <div class="price">₦30,000 / Night</div>
-                    <div class="details">King Bed • Luxury Lounge • Breakfast included • Security</div>
-                    <a href="https://wa.me/2340000000000?text=Hello,%20I%20want%20to%20book%20the%20Royal%20Diplomatic%20Suite%20at%20J%20Brownson%20Hotel" target="_blank" class="wa-btn">Book via WhatsApp</a>
+                    <div class="details">King Bed • Luxury Lounge • Breakfast included • Top Security</div>
+                    
+                    <!-- WhatsApp & Direct Call Buttons -->
+                    <div class="action-buttons">
+                        <a href="https://wa.me/07072521896?text=Hello,%20I%20want%20to%20book%20the%20Royal%20Diplomatic%20Suite%20at%20J%20Brownson%20Hotel" target="_blank" class="wa-btn">WhatsApp</a>
+                        <a href="tel:+2347072521896" class="call-btn">Call Hotel</a>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- FACILITIES SECTION (Pool & Interior Hallway) -->
+    <!-- FACILITIES SECTION -->
     <div class="container">
         <h2 class="section-title">Hotel Facilities & Environment</h2>
         
         <div class="grid">
             
-            <!-- Facility 1 (Pool Picture) -->
+            <!-- Facility 1 (Pool) -->
             <div class="card">
                 <img src="Screenshot_20261109-224750.jpg" alt="Swimming Pool">
                 <div class="card-info">
                     <h3>Executive Swimming Pool</h3>
-                    <div class="details">Clean relaxation pool open 24/7 for guests.</div>
+                    <div class="details">Clean relaxation pool open 24/7 for registered guests.</div>
                 </div>
             </div>
 
-            <!-- Facility 2 (Interior Hallway Picture) -->
+            <!-- Facility 2 (Interior Hallway) -->
             <div class="card">
                 <img src="Screenshot_20261109-224711.jpg" alt="Hotel Interior">
                 <div class="card-info">
                     <h3>Luxury Hallways & Interior</h3>
-                    <div class="details">Serene, air-conditioned interior ambiance.</div>
+                    <div class="details">Serene, fully air-conditioned interior ambiance and bar.</div>
                 </div>
             </div>
 
