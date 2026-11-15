@@ -1,466 +1,1031 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J Brownson Hotel & Suites</title>
-    <style>
-        /* CSS Reset & Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>J. Brownson Hotel & Suites | Luxury & Festive Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --emerald-deep: #022c22;
+      --emerald-mid: #064e3b;
+      --emerald-light: #047857;
+      --gold-light: #fef08a;
+      --gold-accent: #d97706;
+      --gold-bright: #fbbf24;
+      --gold-metallic: linear-gradient(135deg, #fef08a 0%, #fbbf24 45%, #b45309 100%);
+      --text-dark: #0f172a;
+      --text-muted: #475569;
+      --light-bg: #f0fdf4;
+    }
 
-        body {
-            background-color: #06130c;
-            color: #f8fafc;
-            overflow-x: hidden;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-        /* --- HERO HEADER WITH 3D PERSPECTIVE --- */
-        .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(6, 19, 12, 0.85), rgba(6, 19, 12, 0.95)), 
-                        url('Screenshot_20261109-224620.jpg') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            border-bottom: 2px solid #eab308;
-            perspective: 1000px;
-        }
+    body {
+      color: var(--text-dark);
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
 
-        .hotel-logo-badge {
-            width: 75px;
-            height: 75px;
-            background: linear-gradient(135deg, #facc15, #ca8a04);
-            color: #06130c;
-            font-size: 2.4rem;
-            font-weight: 900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            box-shadow: 0 15px 35px rgba(250, 204, 21, 0.6);
-            transform-style: preserve-3d;
-            animation: rotateLogo3D 6s infinite ease-in-out;
-        }
+    /* ================= 3D MOVING WELCOME BANNER ================= */
+    .stage-3d {
+      perspective: 900px;
+      margin-bottom: 22px;
+      width: 100%;
+    }
 
-        .animated-hotel-name {
-            font-size: 2.4rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            color: #ffffff;
-            text-transform: uppercase;
-            transform-style: preserve-3d;
-            text-shadow: 
-                0 1px 0 #ca8a04,
-                0 2px 0 #ab7503,
-                0 4px 0 #6d4b01,
-                0 5px 10px rgba(0, 0, 0, 0.9),
-                0 0 20px rgba(250, 204, 21, 0.8);
-            animation: float3D 4s infinite alternate ease-in-out;
-        }
+    .welcome-3d-text {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--gold-metallic);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      transform-style: preserve-3d;
+      animation: float3D 4.5s ease-in-out infinite;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 18px rgba(251, 191, 36, 0.45));
+    }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: #d1fae5;
-            margin-top: 12px;
-            margin-bottom: 25px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-        }
+    @keyframes float3D {
+      0% { transform: rotateX(14deg) rotateY(-14deg) translateY(0px) scale(1); }
+      50% { transform: rotateX(-10deg) rotateY(14deg) translateY(-8px) scale(1.05); }
+      100% { transform: rotateX(14deg) rotateY(-14deg) translateY(0px) scale(1); }
+    }
 
-        .cta-btn {
-            background: linear-gradient(135deg, #facc15, #ca8a04);
-            color: #06130c;
-            padding: 12px 28px;
-            font-size: 1rem;
-            font-weight: 800;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 6px 20px rgba(234, 179, 8, 0.5);
-        }
+    /* ================= FANCY 'J' CREST LOGO ================= */
+    .fancy-j-splash {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: radial-gradient(circle at top left, #065f46, #022c22);
+      border: 3px solid #fbbf24;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      box-shadow: 0 0 32px rgba(251, 191, 36, 0.6), inset 0 0 15px rgba(251, 191, 36, 0.35);
+      position: relative;
+    }
 
-        .cta-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-        }
+    .fancy-j-splash::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      border: 1px dashed rgba(251, 191, 36, 0.65);
+    }
 
-        /* --- QUICK CHECK AVAILABILITY BAR (LIKE 5-STAR SITES) --- */
-        .quick-booking-bar {
-            max-width: 900px;
-            margin: -35px auto 30px auto;
-            background-color: #0b2216;
-            border: 2px solid #eab308;
-            border-radius: 14px;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: space-around;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            position: relative;
-            z-index: 10;
-        }
+    .fancy-j-splash span {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 3.1rem;
+      font-weight: 900;
+      background: var(--gold-metallic);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+      line-height: 1;
+      padding-right: 4px;
+    }
 
-        .booking-input-group {
-            flex: 1;
-            min-width: 200px;
-            background: #06130c;
-            border: 1px solid #15422a;
-            padding: 12px 15px;
-            border-radius: 8px;
-            text-align: center;
-        }
+    .fancy-j-nav {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #065f46, #022c22);
+      border: 1.5px solid #fbbf24;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+      flex-shrink: 0;
+    }
 
-        .booking-input-group label {
-            display: block;
-            font-size: 0.8rem;
-            color: #facc15;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
+    .fancy-j-nav span {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.65rem;
+      font-weight: 900;
+      background: var(--gold-metallic);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      padding-right: 2px;
+    }
 
-        .booking-input-group span {
-            font-size: 1rem;
-            color: #ffffff;
-            font-weight: 600;
-        }
+    /* ================= CHRISTMAS SPLASH ENTRANCE ================= */
+    #xmas-splash {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, #065f46 0%, #022c22 65%, #011812 100%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+      color: #fff;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
 
-        .check-prices-btn {
-            background-color: #eab308;
-            color: #06130c;
-            padding: 14px 25px;
-            border-radius: 8px;
-            font-weight: 800;
-            text-decoration: none;
-            text-align: center;
-            transition: 0.2s;
-            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);
-        }
+    #xmas-splash.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
 
-        .check-prices-btn:hover {
-            background-color: #facc15;
-        }
+    .splash-badge {
+      background: rgba(251, 191, 36, 0.14);
+      border: 1px solid #fbbf24;
+      color: #fde68a;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
 
-        /* --- CONTAINER --- */
-        .container {
-            padding: 30px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+    .splash-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      color: #fef9c3;
+    }
 
-        .section-title {
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #facc15;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .splash-desc {
+      font-size: 0.95rem;
+      color: #d1fae5;
+      max-width: 400px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
 
-        /* --- AMENITIES GRID (THE 5-STAR LOOK) --- */
-        .amenities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            margin-bottom: 50px;
-        }
+    .enter-btn {
+      background: var(--gold-metallic);
+      color: #022c22;
+      border: none;
+      padding: 15px 34px;
+      font-size: 1rem;
+      font-weight: 800;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(251, 191, 36, 0.35);
+      transition: transform 0.2s ease;
+    }
 
-        .amenity-item {
-            background-color: #0b2216;
-            border: 1px solid #15422a;
-            padding: 18px 10px;
-            border-radius: 10px;
-            text-align: center;
-            transition: 0.3s;
-        }
+    .enter-btn:active {
+      transform: scale(0.96);
+    }
 
-        .amenity-item:hover {
-            border-color: #facc15;
-            transform: translateY(-3px);
-            background-color: #0f2d1e;
-        }
+    /* ================= SNOWFALL CANVAS ================= */
+    #snow-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 900;
+    }
 
-        .amenity-icon {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      color: rgba(254, 240, 138, 0.85);
+      user-select: none;
+      animation: fall linear infinite;
+    }
 
-        .amenity-item span {
-            font-size: 0.85rem;
-            color: #d1fae5;
-            font-weight: 600;
-        }
+    @keyframes fall {
+      to { transform: translateY(105vh); }
+    }
 
-        /* --- GRID CARDS (ROOMS & FACILITIES) --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 25px;
-        }
+    /* ================= HEADER & NAVBAR ================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 800;
+      background: rgba(2, 44, 34, 0.96);
+      backdrop-filter: blur(8px);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+    }
 
-        .card {
-            background-color: #0b2216;
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid #15422a;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: #fff;
+      text-decoration: none;
+    }
 
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: #facc15;
-        }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
 
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.6px;
+      color: #fff;
+    }
 
-        .card-info {
-            padding: 22px;
-        }
+    .brand-sub {
+      font-size: 0.68rem;
+      color: #fbbf24;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
 
-        .card-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-            color: #ffffff;
-        }
+    .menu-toggle {
+      background: transparent;
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      color: #fbbf24;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
 
-        .price {
-            color: #facc15;
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
+    .nav-drawer {
+      display: none;
+      flex-direction: column;
+      background: var(--emerald-deep);
+      padding: 15px 20px;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.25);
+    }
 
-        .details {
-            font-size: 0.92rem;
-            color: #a7f3d0;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
+    .nav-drawer.open {
+      display: flex;
+    }
 
-        /* Action Buttons */
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-        }
+    .nav-drawer a {
+      color: #ecfdf5;
+      text-decoration: none;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.95rem;
+    }
 
-        .wa-btn {
-            flex: 1;
-            text-align: center;
-            background-color: #16a34a;
-            color: white;
-            padding: 12px 10px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
+    /* ================= HERO SECTION ================= */
+    .hero {
+      position: relative;
+      height: 78vh;
+      min-height: 480px;
+      background: linear-gradient(rgba(2, 44, 34, 0.55), rgba(2, 44, 34, 0.84)),
+                  url('hero.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
 
-        .wa-btn:hover { background-color: #15803d; }
+    .hero-subtitle {
+      color: #fbbf24;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
 
-        .call-btn {
-            flex: 1;
-            text-align: center;
-            background-color: #eab308;
-            color: #06130c;
-            padding: 12px 10px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      max-width: 620px;
+    }
 
-        .call-btn:hover { background-color: #ca8a04; }
+    .hero p {
+      font-size: 0.95rem;
+      color: #d1fae5;
+      margin-bottom: 20px;
+    }
 
-        /* --- LOCATION BOX --- */
-        .location-box {
-            background: linear-gradient(135deg, #0b2216, #15422a);
-            border: 1px solid #22c55e;
-            border-radius: 14px;
-            padding: 30px;
-            text-align: center;
-            margin-top: 50px;
-        }
+    /* ================= STICKY BOOKING BAR ================= */
+    .booking-widget {
+      background: #fff;
+      margin: -48px 18px 25px;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 15px 38px rgba(2, 44, 34, 0.18);
+      position: relative;
+      z-index: 10;
+      border-top: 4px solid #fbbf24;
+    }
 
-        .location-box h3 { color: #facc15; font-size: 1.5rem; margin-bottom: 10px; }
-        .location-box p { color: #d1fae5; margin-bottom: 20px; font-size: 1rem; }
+    .widget-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
 
-        /* --- FOOTER --- */
-        footer {
-            background-color: #030a06;
-            text-align: center;
-            padding: 25px;
-            color: #6ee7b7;
-            font-size: 0.9rem;
-            border-top: 1px solid #15422a;
-            margin-top: 40px;
-        }
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--emerald-mid);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
 
-        /* --- ANIMATIONS --- */
-        @keyframes float3D {
-            0% { transform: rotateX(0deg) rotateY(0deg) translateZ(0px); }
-            50% { transform: rotateX(8deg) rotateY(-6deg) translateZ(20px); }
-            100% { transform: rotateX(-6deg) rotateY(8deg) translateZ(20px); }
-        }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #a7f3d0;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background: #f0fdf4;
+    }
 
-        @keyframes rotateLogo3D {
-            0%, 100% { transform: translateY(0) rotateY(0deg); }
-            50% { transform: translateY(-10px) rotateY(180deg) translateZ(15px); }
-        }
-    </style>
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(135deg, #065f46, #022c22);
+      color: #fde68a;
+      border: 1px solid #fbbf24;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    /* ================= HIGHLIGHTS BAR ================= */
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 10px 18px 25px;
+    }
+
+    .trust-pill {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .trust-pill strong {
+      display: block;
+      color: var(--emerald-deep);
+      font-size: 0.9rem;
+    }
+
+    .trust-pill span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ================= SECTIONS ================= */
+    section {
+      padding: 45px 20px;
+    }
+
+    .section-tag {
+      color: #b45309;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      color: var(--emerald-deep);
+    }
+
+    .section-text {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* ================= ROOMS & SUITES ================= */
+    .bg-light {
+      background: var(--light-bg);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #d1fae5;
+      box-shadow: 0 6px 20px rgba(2, 44, 34, 0.07);
+    }
+
+    .card-img-wrap {
+      position: relative;
+    }
+
+    .card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .room-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(2, 44, 34, 0.9);
+      color: #fbbf24;
+      border: 1px solid #fbbf24;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body h4 {
+      font-size: 1.2rem;
+      color: var(--emerald-deep);
+      margin-bottom: 6px;
+    }
+
+    .amenities-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 14px;
+    }
+
+    .amenities-tags span {
+      background: #ecfdf5;
+      color: #065f46;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .card-body p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    /* ================= FACILITIES & VISUAL TOUR ================= */
+    .tour-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .tour-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 165px;
+      cursor: pointer;
+      border: 1px solid #d1fae5;
+    }
+
+    .tour-item.wide {
+      grid-column: span 2;
+      height: 200px;
+    }
+
+    .tour-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .tour-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .tour-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      background: linear-gradient(transparent, rgba(2, 44, 34, 0.92));
+      color: #fff;
+      padding: 22px 12px 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .tour-caption small {
+      display: block;
+      color: #fbbf24;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+
+    /* ================= SERVICES LIST ================= */
+    .service-item {
+      margin-bottom: 18px;
+      padding-left: 14px;
+      border-left: 3px solid #fbbf24;
+    }
+
+    .service-item h3 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      color: var(--emerald-deep);
+    }
+
+    .service-item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ================= LOCATION & CTA BANNERS ================= */
+    .banner-box {
+      background: linear-gradient(rgba(2, 44, 34, 0.82), rgba(2, 44, 34, 0.92)),
+                  url('lobby.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 48px 22px;
+      border-radius: 14px;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      margin-bottom: 22px;
+    }
+
+    .banner-box h2 {
+      font-size: 1.65rem;
+      color: #fef9c3;
+      margin-bottom: 12px;
+    }
+
+    .banner-box p {
+      font-size: 0.92rem;
+      color: #d1fae5;
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .btn-outline-gold {
+      display: inline-block;
+      background: var(--gold-metallic);
+      color: #022c22;
+      text-decoration: none;
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* ================= LIGHTBOX MODAL ================= */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(1, 24, 18, 0.94);
+      z-index: 9500;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    #lightbox.active {
+      display: flex;
+    }
+
+    #lightbox img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 12px;
+      border: 2px solid #fbbf24;
+    }
+
+    #lightbox p {
+      color: #fef9c3;
+      margin-top: 12px;
+      font-weight: 600;
+    }
+
+    #lightbox button {
+      margin-top: 16px;
+      background: #fbbf24;
+      color: #022c22;
+      border: none;
+      padding: 8px 22px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ================= FLOATING WHATSAPP BUTTON ================= */
+    .wa-float {
+      position: fixed;
+      bottom: 20px;
+      right: 18px;
+      background: #16a34a;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      z-index: 850;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid #fbbf24;
+    }
+
+    footer {
+      background: var(--emerald-deep);
+      color: #a7f3d0;
+      text-align: center;
+      padding: 28px 15px 75px;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(251, 191, 36, 0.25);
+    }
+
+    @media (min-width: 768px) {
+      .widget-grid { grid-template-columns: repeat(3, 1fr); }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-strip { grid-template-columns: repeat(4, 1fr); }
+      .welcome-3d-text { font-size: 1.85rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- HERO SECTION -->
-    <div class="hero">
-        <div class="hotel-logo-badge">J</div>
-        <h1 class="animated-hotel-name">J Brownson Hotel</h1>
-        <p>Luxury, Comfort & 24/7 Premium Hospitality</p>
-        <a href="#rooms" class="cta-btn">Explore Rooms & Facilities</a>
+  <!-- 1. CHRISTMAS GREETING ENTRANCE SPLASH WITH 3D MOVING WELCOME -->
+  <div id="xmas-splash">
+    <div class="stage-3d">
+      <div class="welcome-3d-text">Welcome To J. Brownson Hotel</div>
     </div>
 
-    <!-- QUICK CHECK AVAILABILITY BAR (5-STYLE LOOK) -->
-    <div class="quick-booking-bar">
-        <div class="booking-input-group">
-            <label>Reservation Desk</label>
-            <span>Open 24/7 Daily</span>
-        </div>
-        <div class="booking-input-group">
-            <label>Instant Booking</label>
-            <span>Fast WhatsApp Confirm</span>
-        </div>
-        <a href="https://wa.me/2347072521896?text=Hello,%20I%20want%20to%20check%20room%20availability%20and%20prices%20at%20J%20Brownson%20Hotel" target="_blank" class="check-prices-btn">Check Prices & Book</a>
+    <div class="fancy-j-splash">
+      <span>J</span>
     </div>
 
-    <!-- MAIN CONTAINER -->
-    <div class="container">
+    <span class="splash-badge">🎄 Season's Greetings</span>
+    <h1 class="splash-title">Merry Christmas & Happy New Year!</h1>
+    <p class="splash-desc">
+      Experience royal emerald luxury, poolside relaxation, and exclusive December hospitality crafted just for you.
+    </p>
+    <button class="enter-btn" onclick="enterHotelSite()">Enter J. Brownson Portal ✨</button>
+  </div>
 
-        <!-- 5-STAR AMENITIES ICONS GRID -->
-        <h2 class="section-title">Hotel Amenities & Services</h2>
-        <div class="amenities-grid">
-            <div class="amenity-item">
-                <div class="amenity-icon">🚭</div>
-                <span>Non-Smoking Rooms</span>
-            </div>
-            <div class="amenity-item">
-                <div class="amenity-icon">🍽️</div>
-                <span>On-Site Restaurant</span>
-            </div>
-            <div class="amenity-item">
-                <div class="amenity-icon">🏊‍♂️</div>
-                <span>Outdoor Pool</span>
-            </div>
-            <div class="amenity-item">
-                <div class="amenity-icon">📶</div>
-                <span>Free High-Speed Wi-Fi</span>
-            </div>
-            <div class="amenity-item">
-                <div class="amenity-icon">⚡</div>
-                <span>24/7 Power Supply</span>
-            </div>
-            <div class="amenity-item">
-                <div class="amenity-icon">🛎️</div>
-                <span>24/7 Concierge</span>
-            </div>
-            <div class="amenity-item">
-                <div class="amenity-icon">🛡️</div>
-                <span>Top Security</span>
-            </div>
-            <div class="amenity-item">
-                <div class="amenity-icon">🍸</div>
-                <span>Bar & Lounge</span>
-            </div>
+  <!-- SNOWFALL OVERLAY -->
+  <div id="snow-container"></div>
+
+  <!-- 2. HEADER -->
+  <header>
+    <a href="#" class="brand">
+      <div class="fancy-j-nav">
+        <span>J</span>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">J. BROWNSON</span>
+        <span class="brand-sub">Hotel & Suites</span>
+      </div>
+    </a>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <nav class="nav-drawer" id="navDrawer">
+    <a href="#rooms" onclick="toggleMenu()">Rooms & Booking</a>
+    <a href="#facilities" onclick="toggleMenu()">Pool, Rooftop & Dining</a>
+    <a href="#services" onclick="toggleMenu()">Hotel Services</a>
+    <a href="#location" onclick="toggleMenu()">Location & Contact</a>
+  </nav>
+
+  <!-- 3. HERO BANNER (hero.jpg) -->
+  <div class="hero">
+    <span class="hero-subtitle">Welcome To J. Brownson Hotel</span>
+    <h1>Your One-Stop Luxury Hotel Complex</h1>
+    <p>Book Your Festive Stay, Poolside Hangout & Executive Suites</p>
+  </div>
+
+  <!-- 4. INSTANT WHATSAPP BOOKING WIDGET -->
+  <div class="booking-widget">
+    <div class="widget-grid">
+      <div class="form-group">
+        <label>Check-In Date</label>
+        <input type="date" id="checkinDate" />
+      </div>
+      <div class="form-group">
+        <label>Duration (Nights)</label>
+        <select id="nightsSelect">
+          <option value="1 Night">1 Night Stay</option>
+          <option value="2 Nights">2 Nights Weekend</option>
+          <option value="3 Nights">3 Nights Holiday</option>
+          <option value="5+ Nights">5+ Nights Extended</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Select Room / Package</label>
+        <select id="roomSelect">
+          <option value="Regular Standard Room">Regular Standard Room</option>
+          <option value="Executive Luxury Suite">Executive Luxury Suite</option>
+          <option value="🎄 Christmas VIP All-Access Package">🎄 Christmas VIP Package</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-primary" style="margin-top: 14px;" onclick="sendWhatsAppBooking()">
+      Book Room on WhatsApp →
+    </button>
+  </div>
+
+  <!-- TRUST & AMENITY PILLS -->
+  <div class="trust-strip">
+    <div class="trust-pill">
+      <strong>🏊 Swimming Pool</strong>
+      <span>Crystal Clear Lounge</span>
+    </div>
+    <div class="trust-pill">
+      <strong>⚡ 24/7 Power</strong>
+      <span>Uninterrupted Comfort</span>
+    </div>
+    <div class="trust-pill">
+      <strong>🍽️ Canteen & Bar</strong>
+      <span>Fresh Meals & Drinks</span>
+    </div>
+    <div class="trust-pill">
+      <strong>🛡️ Top Security</strong>
+      <span>Safe & Private Retreat</span>
+    </div>
+  </div>
+
+  <!-- 5. ROOMS & SUITES SECTION (executive.jpg & regular.jpg) -->
+  <section id="rooms" class="bg-light">
+    <span class="section-tag">Accommodation & Reservations</span>
+    <h2 class="section-title">Book Your Luxury Stay</h2>
+    <p class="section-text">
+      Choose from our serene, well-furnished rooms designed for peaceful rest and holiday comfort. Tap book below for instant WhatsApp reservation.
+    </p>
+
+    <div class="cards-grid">
+      <!-- EXECUTIVE SUITE -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="executive.jpg" alt="Executive Luxury Suite" />
+          <span class="room-badge">⭐ Most Popular</span>
         </div>
-
-        <!-- ROOMS SECTION -->
-        <div id="rooms">
-            <h2 class="section-title">Our Rooms & Suites</h2>
-            
-            <div class="grid">
-                <!-- Room 1 -->
-                <div class="card">
-                    <img src="Screenshot_20261109-224646.jpg" alt="Standard Executive Room">
-                    <div class="card-info">
-                        <h3>Standard Executive</h3>
-                        <div class="price">₦15,000 / Night</div>
-                        <div class="details">AC • Free Wi-Fi • 24/7 Power • Smart TV • Cozy Bed</div>
-                        <div class="action-buttons">
-                            <a href="https://wa.me/2347072521896?text=Hello,%20I%20want%20to%20book%20the%20Standard%20Executive%20Room%20at%20J%20Brownson%20Hotel" target="_blank" class="wa-btn">WhatsApp</a>
-                            <a href="tel:+2347072521896" class="call-btn">Call Hotel</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Room 2 -->
-                <div class="card">
-                    <img src="Screenshot_20261109-224730.jpg" alt="Royal Diplomatic Suite">
-                    <div class="card-info">
-                        <h3>Royal Diplomatic Suite</h3>
-                        <div class="price">₦30,000 / Night</div>
-                        <div class="details">King Bed • Luxury Lounge • Breakfast included • Top Security</div>
-                        <div class="action-buttons">
-                            <a href="https://wa.me/2347072521896?text=Hello,%20I%20want%20to%20book%20the%20Royal%20Diplomatic%20Suite%20at%20J%20Brownson%20Hotel" target="_blank" class="wa-btn">WhatsApp</a>
-                            <a href="tel:+2347072521896" class="call-btn">Call Hotel</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="card-body">
+          <h4>Executive Luxury Suite</h4>
+          <div class="amenities-tags">
+            <span>King Bed</span>
+            <span>Smart TV</span>
+            <span>AC & Wi-Fi</span>
+            <span>Pool Access</span>
+          </div>
+          <p>Spacious executive room crafted for VIP guests, couples, and business travelers seeking maximum privacy and luxury.</p>
+          <button class="btn-primary" onclick="quickBook('Executive Luxury Suite')">Book Executive Suite 💬</button>
         </div>
+      </div>
 
-        <!-- FACILITIES SECTION -->
-        <div style="margin-top: 60px;">
-            <h2 class="section-title">Hotel Facilities & Environment</h2>
-            
-            <div class="grid">
-                <div class="card">
-                    <img src="Screenshot_20261109-224750.jpg" alt="Swimming Pool">
-                    <div class="card-info">
-                        <h3>Executive Swimming Pool</h3>
-                        <div class="details">Clean relaxation pool open 24/7 for registered guests.</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="Screenshot_20261109-224711.jpg" alt="Hotel Interior">
-                    <div class="card-info">
-                        <h3>Luxury Hallways & Interior</h3>
-                        <div class="details">Serene, fully air-conditioned interior ambiance and bar.</div>
-                    </div>
-                </div>
-            </div>
+      <!-- REGULAR ROOM -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="regular.jpg" alt="Regular Standard Room" />
+          <span class="room-badge">🎄 Festive Deal</span>
         </div>
-
-        <!-- LOCATION & DIRECT BOOKING CALLOUT -->
-        <div class="location-box">
-            <h3>Visit or Contact J Brownson Hotel Today</h3>
-            <p>Experience the finest hospitality in town. Book your room in advance or walk in anytime!</p>
-            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                <a href="https://wa.me/2347072521896?text=Hello,%20I%20need%20directions%20and%20booking%20assistance" target="_blank" class="wa-btn" style="max-width: 200px;">Chat on WhatsApp</a>
-                <a href="tel:+2347072521896" class="call-btn" style="max-width: 200px;">Call Front Desk</a>
-            </div>
+        <div class="card-body">
+          <h4>Regular Standard Room</h4>
+          <div class="amenities-tags">
+            <span>Cozy Bed</span>
+            <span>En-suite Bath</span>
+            <span>24/7 Power</span>
+            <span>Room Service</span>
+          </div>
+          <p>Clean, comfortable, and budget-friendly luxury room with ambient lighting and full access to hotel facilities.</p>
+          <button class="btn-primary" onclick="quickBook('Regular Standard Room')">Book Regular Room 💬</button>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- 6. FACILITIES & GALLERY TOUR (All Hotel Photos) -->
+  <section id="facilities">
+    <span class="section-tag">Explore J. Brownson</span>
+    <h2 class="section-title">Pool, Rooftop & Facilities</h2>
+    <p class="section-text">Tap any photo below to inspect our world-class spaces in full screen.</p>
+
+    <div class="tour-grid">
+      <div class="tour-item wide" onclick="openLightbox('swimming-pool.jpg', 'Luxury Swimming Pool & Relaxation Deck')">
+        <img src="swimming-pool.jpg" alt="Swimming Pool" />
+        <div class="tour-caption">
+          Swimming Pool & Deck
+          <small>Cool off & unwind this Christmas</small>
+        </div>
+      </div>
+
+      <div class="tour-item" onclick="openLightbox('lobby.jpg', 'Grand Double-Volume Reception Lobby')">
+        <img src="lobby.jpg" alt="Grand Lobby" />
+        <div class="tour-caption">
+          Grand Reception Lobby
+          <small>24/7 Guest Concierge</small>
+        </div>
+      </div>
+
+      <div class="tour-item" onclick="openLightbox('roof-top.jpg', 'Open-Air Rooftop Lounge')">
+        <img src="roof-top.jpg" alt="Rooftop Lounge" />
+        <div class="tour-caption">
+          Rooftop Terrace
+          <small>Evening breeze & hangouts</small>
+        </div>
+      </div>
+
+      <div class="tour-item" onclick="openLightbox('canteen1.jpg', 'Indoor Restaurant & Dining Lounge')">
+        <img src="canteen1.jpg" alt="Indoor Dining" />
+        <div class="tour-caption">
+          Indoor Dining Hall
+          <small>Continental & local dishes</small>
+        </div>
+      </div>
+
+      <div class="tour-item" onclick="openLightbox('canteen.jpg', 'J. Brownson Canteen & Refreshment Wing')">
+        <img src="canteen.jpg" alt="Canteen Wing" />
+        <div class="tour-caption">
+          Canteen & Grill Wing
+          <small>Fresh meals served daily</small>
+        </div>
+      </div>
+
+      <div class="tour-item" onclick="openLightbox('hall-way.jpg', 'Executive Suite Corridor')">
+        <img src="hall-way.jpg" alt="Hotel Hallway" />
+        <div class="tour-caption">
+          Executive Suites Wing
+          <small>Serene & private corridors</small>
+        </div>
+      </div>
+
+      <div class="tour-item" onclick="openLightbox('plant.jpg', 'Green Garden & Outdoor Courtyard')">
+        <img src="plant.jpg" alt="Green Courtyard" />
+        <div class="tour-caption">
+          Green Courtyard
+          <small>Peaceful nature ambiance</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. SERVICES & HOSPITALITY -->
+  <section id="services" class="bg-light">
+    <span class="section-tag">Hospitality & Comfort</span>
+    <h2 class="section-title">What J. Brownson Offers</h2>
+
+    <div class="service-item">
+      <h3>Instant WhatsApp Room Reservations</h3>
+      <p>Select your preferred suite and dates online for immediate confirmation with our front desk.</p>
+    </div>
+    <div class="service-item">
+      <h3>Poolside & Rooftop Hangouts</h3>
+      <p>Host end-of-year celebrations, birthday chillouts, and festive evening drinks.</p>
+    </div>
+    <div class="service-item">
+      <h3>Canteen & 24/7 Room Service</h3>
+      <p>Enjoy freshly prepared Nigerian delicacies, grills, and chilled beverages delivered to your room.</p>
+    </div>
+    <div class="service-item">
+      <h3>Uninterrupted Power & Security</h3>
+      <p>Steady electricity, ample parking space, and round-the-clock security personnel.</p>
+    </div>
+  </section>
+
+  <!-- 8. LOCATION & RESERVATION BANNERS -->
+  <section id="location">
+    <div class="banner-box">
+      <span class="section-tag" style="color: #fbbf24;">Our Location</span>
+      <h2>Visit J. Brownson Hotel:</h2>
+      <p>
+        J. Brownson Hotel & Suites, Idah, Kogi State.<br />
+        Direct Line / WhatsApp: <strong>0812 907 6987</strong>
+      </p>
+      <button class="btn-outline-gold" onclick="quickBook('General Inquiry / Directions')">Chat With Front Desk 💬</button>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 J Brownson Hotel & Suites. All Rights Reserved. Built with excellence.</p>
-    </footer>
+    <div class="banner-box">
+      <span class="section-tag" style="color: #fbbf24;">Christmas Special</span>
+      <h2>Spend The Holidays With Us:</h2>
+      <p>
+        From our swimming pool and rooftop lounge to our executive rooms, everything is set to make your Christmas stay unforgettable.
+      </p>
+      <button class="btn-outline-gold" onclick="quickBook('Christmas Holiday Reservation')">Reserve Your Stay Now ✨</button>
+    </div>
+  </section>
 
+  <!-- FULLSCREEN IMAGE LIGHTBOX -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Preview" />
+    <p id="lightbox-caption"></p>
+    <button onclick="closeLightbox()">Close Preview ✕</button>
+  </div>
+
+  <!-- FLOATING WHATSAPP CONCIERGE -->
+  <a href="https://wa.me/2348129076987?text=Hello%20J.%20Brownson%20Hotel!%20I%20would%20like%20to%20make%20a%20booking%20inquiry." target="_blank" class="wa-float">
+    💬 Book on WhatsApp
+  </a>
+
+  <footer>
+    <p>&copy; 2026 J. Brownson Hotel & Suites. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JAVASCRIPT INTERACTIVITY -->
+  <script>
+    // J. Brownson Hotel Official WhatsApp Number (08129076987)
+    const HOTEL_WHATSAPP = "2348129076987";
+
+    // Dismiss Christmas Splash Screen
+    function enterHotelSite() {
+      document.getElementById("xmas-splash").classList.add("hidden");
+    }
+
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      document.getElementById("navDrawer").classList.toggle("open");
+    }
+
+    // Main Booking Widget WhatsApp Redirect
+    function sendWhatsAppBooking() {
+      const date = document.getElementById("checkinDate").value || "Flexible Date";
+      const nights = document.getElementById("nightsSelect").value;
+      const room = document.getElementById("roomSelect").value;
+      const text = `Hello J. Brownson Hotel! 🎄\nI would like to book a room from your website:\n\n*Room/Package:* ${room}\n*Check-in Date:* ${date}\n*Duration:* ${nights}\n\nPlease confirm availability.`;
+      window.open(`https://wa.me/${HOTEL_WHATSAPP}?text=${encodeURIComponent(text)}`, "_blank");
+    }
+
+    // Direct Room Card / CTA WhatsApp Redirect
+    function quickBook(itemName) {
+      const text = `Hello J. Brownson Hotel! 🎄\nI would like to make a reservation for: *${itemName}*.\nPlease let me know the rate and availability.`;
+      window.open(`https://wa.me/${HOTEL_WHATSAPP}?text=${encodeURIComponent(text)}`, "_blank");
+    }
+
+    // Fullscreen Gallery Lightbox
+    function openLightbox(imgSrc, captionText) {
+      document.getElementById("lightbox-img").src = imgSrc;
+      document.getElementById("lightbox-caption").textContent = captionText;
+      document.getElementById("lightbox").classList.add("active");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("active");
+    }
+
+    // Gentle Gold & White Snowfall Generator
+    function createSnowflakes() {
+      const container = document.getElementById("snow-container");
+      const count = 26;
+      for (let i = 0; i < count; i++) {
+        const flake = document.createElement("div");
+        flake.className = "snowflake";
+        flake.innerHTML = "❄";
+        flake.style.left = Math.random() * 100 + "vw";
+        flake.style.fontSize = (Math.random() * 12 + 8) + "px";
+        flake.style.animationDuration = (Math.random() * 5 + 5) + "s";
+        flake.style.animationDelay = Math.random() * 5 + "s";
+        container.appendChild(flake);
+      }
+    }
+
+    createSnowflakes();
+  </script>
 </body>
 </html>
